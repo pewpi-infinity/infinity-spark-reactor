@@ -240,22 +240,22 @@ export function WebsiteView({
             </div>
             <div className="space-y-1">
               <div className="text-muted-foreground">Pages</div>
-              <div>{website.pages.length}</div>
+              <div>{website.pages?.length || 0}</div>
             </div>
             <div className="space-y-1">
               <div className="text-muted-foreground">Functional Tools</div>
-              <div className="font-semibold text-secondary">{displayTools.length}</div>
+              <div className="font-semibold text-secondary">{displayTools?.length || 0}</div>
             </div>
           </div>
 
-          {website.collaborators.length > 1 && (
+          {(website.collaborators?.length || 0) > 1 && (
             <Card className="cosmic-border bg-secondary/20 backdrop-blur-sm p-4">
               <div className="flex items-center gap-2 mb-3">
                 <Users size={20} className="text-accent" />
-                <h3 className="font-semibold">Collaborators ({website.collaborators.length - 1})</h3>
+                <h3 className="font-semibold">Collaborators ({(website.collaborators?.length || 1) - 1})</h3>
               </div>
               <div className="space-y-2">
-                {website.collaborators
+                {(website.collaborators || [])
                   .filter(c => c.role !== 'owner')
                   .map((collab) => (
                     <div key={collab.wallet} className="flex items-center justify-between text-sm bg-card/50 rounded p-2">
@@ -281,7 +281,7 @@ export function WebsiteView({
 
         <Separator className="my-12" />
 
-        {website.pages.length > 0 && (
+        {(website.pages?.length || 0) > 0 && (
           <div className="mb-8">
             <h3 className="text-lg font-semibold mb-4">Pages</h3>
             <div className="flex flex-wrap gap-2">
@@ -291,7 +291,7 @@ export function WebsiteView({
               >
                 Home
               </Button>
-              {website.pages.map((page) => (
+              {(website.pages || []).map((page) => (
                 <Button
                   key={page.id}
                   variant={selectedPage?.id === page.id ? 'default' : 'outline'}
@@ -304,14 +304,14 @@ export function WebsiteView({
           </div>
         )}
 
-        {displayTools.length > 0 && (
+        {(displayTools?.length || 0) > 0 && (
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-4">
               <Wrench size={24} className="text-accent" />
-              <h3 className="text-lg font-semibold">Functional Tools ({displayTools.length})</h3>
+              <h3 className="text-lg font-semibold">Functional Tools ({displayTools?.length || 0})</h3>
             </div>
             <div className="space-y-6">
-              {displayTools.map((tool) => (
+              {(displayTools || []).map((tool) => (
                 <ToolRenderer key={tool.id} tool={tool} />
               ))}
             </div>

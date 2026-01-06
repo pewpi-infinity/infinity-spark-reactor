@@ -45,7 +45,7 @@ export function WalletView({ wallet, onBack, onViewWebsite }: WalletViewProps) {
               <div className="text-muted-foreground mb-2">Total Balance</div>
               <div className="text-5xl font-bold text-accent">{formatValue(wallet.balance)}</div>
               <div className="text-sm text-muted-foreground mt-2">
-                {wallet.tokens.length} token{wallet.tokens.length !== 1 ? 's' : ''}
+                {wallet.tokens?.length || 0} token{(wallet.tokens?.length || 0) !== 1 ? 's' : ''}
               </div>
             </div>
           </Card>
@@ -64,7 +64,7 @@ export function WalletView({ wallet, onBack, onViewWebsite }: WalletViewProps) {
           </TabsList>
 
           <TabsContent value="tokens" className="space-y-6">
-            {wallet.tokens.length === 0 ? (
+            {(wallet.tokens?.length || 0) === 0 ? (
               <Card className="cosmic-border bg-card/80 backdrop-blur-sm p-12 text-center">
                 <Coin size={64} className="mx-auto mb-4 text-muted-foreground" />
                 <h3 className="text-xl font-semibold mb-2">No tokens yet</h3>
@@ -74,7 +74,7 @@ export function WalletView({ wallet, onBack, onViewWebsite }: WalletViewProps) {
               </Card>
             ) : (
               <div className="grid gap-6">
-                {wallet.tokens.map((token) => (
+                {(wallet.tokens || []).map((token) => (
                   <Card key={token.id} className="cosmic-border bg-card/80 backdrop-blur-sm p-6 hover:scale-[1.01] transition-all">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
@@ -137,7 +137,7 @@ export function WalletView({ wallet, onBack, onViewWebsite }: WalletViewProps) {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Total Tokens</span>
-                  <span>{wallet.tokens.length}</span>
+                  <span>{wallet.tokens?.length || 0}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Total Value</span>

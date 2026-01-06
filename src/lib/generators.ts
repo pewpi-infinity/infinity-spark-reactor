@@ -19,8 +19,8 @@ export function generateTransactionId(): string {
 
 export function calculateWebsiteValue(website: Website): number {
   const baseValue = 1000
-  const pageValue = website.pages.length * 100
-  const toolValue = website.tools.reduce((sum, tool) => sum + getToolValue(tool.type), 0)
+  const pageValue = (website.pages?.length || 0) * 100
+  const toolValue = (website.tools || []).reduce((sum, tool) => sum + getToolValue(tool.type), 0)
   const ageBonus = Math.floor((Date.now() - website.createdAt) / (1000 * 60 * 60 * 24)) * 10
   return baseValue + pageValue + toolValue + ageBonus
 }

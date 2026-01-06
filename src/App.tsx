@@ -146,7 +146,7 @@ function App() {
           if (site.id === selectedWebsite.id) {
             const updatedSite = {
               ...site,
-              pages: [...site.pages, newPage],
+              pages: [...(site.pages || []), newPage],
               lastModified: Date.now()
             }
             updatedSite.value = calculateWebsiteValue(updatedSite)
@@ -156,21 +156,21 @@ function App() {
         })
       )
 
-      const toolValue = newPage.tools.reduce((sum, tool) => sum + 100, 0)
+      const toolValue = (newPage.tools || []).reduce((sum, tool) => sum + 100, 0)
 
       setWallet((currentWallet) => {
         if (!currentWallet) return null
         return {
           ...currentWallet,
           balance: currentWallet.balance + 100 + toolValue,
-          tokens: currentWallet.tokens.map(token => {
+          tokens: (currentWallet.tokens || []).map(token => {
             if (token.websiteId === selectedWebsite.id) {
               return {
                 ...token,
                 value: token.value + 100 + toolValue,
                 metadata: {
                   ...token.metadata,
-                  toolCount: (token.metadata.toolCount || 0) + newPage.tools.length
+                  toolCount: (token.metadata.toolCount || 0) + (newPage.tools?.length || 0)
                 }
               }
             }
@@ -179,7 +179,7 @@ function App() {
         }
       })
 
-      toast.success(`Page "${title}" added with ${newPage.tools.length} tool(s)!`)
+      toast.success(`Page "${title}" added with ${newPage.tools?.length || 0} tool(s)!`)
     } catch (error) {
       console.error('Error adding page:', error)
       toast.error('Failed to add page. Please try again.')
@@ -272,7 +272,7 @@ function App() {
         infinityBalance: currentWallet.infinityBalance - price,
         balance: currentWallet.balance + website.value,
         tokens: [
-          ...currentWallet.tokens,
+          ...(currentWallet.tokens || []),
           {
             id: website.tokenId,
             websiteId: website.id,
@@ -305,7 +305,7 @@ function App() {
                 addedAt: Date.now(),
                 addedBy: wallet.address
               },
-              ...site.collaborators.filter(c => c.role !== 'owner')
+              ...(site.collaborators || []).filter(c => c.role !== 'owner')
             ]
           }
         }
@@ -336,7 +336,7 @@ function App() {
       return
     }
 
-    const existing = website.collaborators.find(c => c.wallet === collaboratorWallet)
+    const existing = (website.collaborators || []).find(c => c.wallet === collaboratorWallet)
     if (existing) {
       toast.error('User is already a collaborator')
       return
@@ -344,11 +344,11 @@ function App() {
 
     setWebsites((current) =>
       (current || []).map((site) => {
-        if (site.id === websiteId) {
+        if (site.id === websiteId && site.ownerWallet === wallet.address) {
           return {
             ...site,
             collaborators: [
-              ...site.collaborators,
+              ...(site.collaborators || []),
               {
                 wallet: collaboratorWallet,
                 role,
@@ -373,7 +373,7 @@ function App() {
         if (site.id === websiteId && site.ownerWallet === wallet.address) {
           return {
             ...site,
-            collaborators: site.collaborators.filter(c => c.wallet !== collaboratorWallet || c.role === 'owner')
+            collaborators: (site.collaborators || []).filter(c => c.wallet !== collaboratorWallet || c.role === 'owner')
           }
         }
         return site

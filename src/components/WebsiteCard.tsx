@@ -58,16 +58,16 @@ export function WebsiteCard({ website, isOwned = false, onView, onPurchase, show
           </div>
           <div className="flex justify-between">
             <span>Pages:</span>
-            <span>{website.pages.length} page{website.pages.length !== 1 ? 's' : ''}</span>
+            <span>{(website.pages?.length || 0)} page{(website.pages?.length || 0) !== 1 ? 's' : ''}</span>
           </div>
           <div className="flex justify-between">
             <span>Tools:</span>
-            <span className="font-semibold text-secondary">{website.tools.length} functional tool{website.tools.length !== 1 ? 's' : ''}</span>
+            <span className="font-semibold text-secondary">{(website.tools?.length || 0)} functional tool{(website.tools?.length || 0) !== 1 ? 's' : ''}</span>
           </div>
-          {website.collaborators.length > 1 && (
+          {(website.collaborators?.length || 0) > 1 && (
             <div className="flex justify-between">
               <span>Collaborators:</span>
-              <span>{website.collaborators.length - 1}</span>
+              <span>{(website.collaborators?.length || 1) - 1}</span>
             </div>
           )}
         </div>

@@ -14,8 +14,8 @@ interface MarketplaceViewProps {
 }
 
 export function MarketplaceView({ websites, currentWallet, onBack, onViewWebsite, onPurchase }: MarketplaceViewProps) {
-  const forSaleWebsites = websites.filter(w => w.isListedForSale && w.ownerWallet !== currentWallet?.address)
-  const allOtherWebsites = websites.filter(w => !w.isListedForSale && w.ownerWallet !== currentWallet?.address)
+  const forSaleWebsites = (websites || []).filter(w => w.isListedForSale && w.ownerWallet !== currentWallet?.address)
+  const allOtherWebsites = (websites || []).filter(w => !w.isListedForSale && w.ownerWallet !== currentWallet?.address)
 
   return (
     <div className="min-h-screen">
