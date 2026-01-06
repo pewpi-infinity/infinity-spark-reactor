@@ -1,3 +1,5 @@
+import { WorldArchetype } from './worldTypes'
+
 export type WebsiteTheme = 'cosmic' | 'minimal' | 'editorial' | 'technical' | 'vibrant'
 
 export type ToolPrimitive = 
@@ -57,6 +59,11 @@ export interface Website {
   collaborators: Collaborator[]
   isListedForSale: boolean
   salePrice?: number
+  worldArchetype?: WorldArchetype
+  rarityMultiplier?: number
+  slotCombination?: string
+  uniquenessScore?: number
+  activeBuildTime?: number
 }
 
 export interface Page {
@@ -81,6 +88,9 @@ export interface Token {
     description: string
     query: string
     toolCount?: number
+    worldArchetype?: WorldArchetype
+    rarityMultiplier?: number
+    uniquenessScore?: number
   }
 }
 

@@ -1,71 +1,96 @@
 import { useState } from 'react'
-import { InfinitySearch } from '@/components/InfinitySearch'
-import { ThemeSelector } from '@/components/ThemeSelector'
-import { WebsiteTheme } from '@/lib/types'
-import { Card } from '@/components/ui/card'
+import { SlotMachine } from '@/components/SlotMachine'
+import { WorldArchetypeSelector } from '@/components/WorldArchetypeSelector'
+import { WorldArchetype } from '@/lib/worldTypes'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Sparkle, ListBullets } from '@phosphor-icons/react'
 
 interface HomeViewProps {
-  onCreateWebsite: (query: string, theme: WebsiteTheme) => void
+  onCreateWorld: (archetype: WorldArchetype, rarityMultiplier: number, slotCombination: string) => Promise<void>
   isCreating: boolean
 }
 
-export function HomeView({ onCreateWebsite, isCreating }: HomeViewProps) {
-  const [selectedTheme, setSelectedTheme] = useState<WebsiteTheme>('cosmic')
+export function HomeView({ onCreateWorld, isCreating }: HomeViewProps) {
+  const [selectedArchetype, setSelectedArchetype] = useState<WorldArchetype | undefined>()
+  const [creationMode, setCreationMode] = useState<'slot' | 'select'>('slot')
 
-  const handleSearch = (query: string) => {
-    onCreateWebsite(query, selectedTheme)
+  const handleSlotSpin = async (archetype: string, rarityMultiplier: number, combination: string) => {
+    await onCreateWorld(archetype as WorldArchetype, rarityMultiplier, combination)
+  }
+
+  const handleManualSelect = async (archetype: WorldArchetype) => {
+    setSelectedArchetype(archetype)
+    await onCreateWorld(archetype, 1.0, JSON.stringify({ manual: true, archetype }))
   }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
-      <div className="max-w-4xl w-full space-y-16">
+      <div className="max-w-7xl w-full space-y-12">
         <div className="text-center space-y-6">
-          <h1 className="text-6xl md:text-8xl font-bold text-foreground tracking-tight">
-            <span className="bg-gradient-to-r from-accent via-secondary to-primary bg-clip-text text-transparent animate-cosmic-pulse">
-              INFINITY
+          <h1 className="text-5xl md:text-7xl font-bold text-foreground tracking-tight">
+            <span className="bg-gradient-to-r from-accent via-secondary to-primary bg-clip-text text-transparent">
+              INFINITY SPARK
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-            Turn ideas into live websites with working tools — instantly. Every website is a token. Every tool adds value.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+            Where learning feels like play, play creates assets, and assets have real value.
+            Spin the neural slot machine or choose your world archetype.
           </p>
         </div>
 
-        <Card className="cosmic-border bg-card/50 backdrop-blur-sm p-6">
-          <ThemeSelector
-            selectedTheme={selectedTheme}
-            onSelectTheme={setSelectedTheme}
-          />
-        </Card>
+        <Tabs value={creationMode} onValueChange={(v) => setCreationMode(v as 'slot' | 'select')} className="w-full">
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
+            <TabsTrigger value="slot" className="gap-2">
+              <Sparkle size={20} />
+              <span>Neural Slot</span>
+            </TabsTrigger>
+            <TabsTrigger value="select" className="gap-2">
+              <ListBullets size={20} />
+              <span>Browse Worlds</span>
+            </TabsTrigger>
+          </TabsList>
 
-        <div className="w-full">
-          <InfinitySearch
-            onSearch={handleSearch}
-            isLoading={isCreating}
-            placeholder="What world will you build?"
-            size="large"
-          />
-        </div>
+          <TabsContent value="slot" className="mt-0">
+            <div className="flex flex-col items-center space-y-8">
+              <div className="text-center max-w-2xl space-y-3">
+                <h2 className="text-3xl font-bold">Neural Slot Machine</h2>
+                <p className="text-muted-foreground">
+                  Your behavior influences the outcome - hover time, hesitation, and timing combine with emoji reels to create unique educational worlds
+                </p>
+              </div>
+              
+              <SlotMachine onSpin={handleSlotSpin} isSpinning={isCreating} />
+            </div>
+          </TabsContent>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <TabsContent value="select" className="mt-0">
+            <WorldArchetypeSelector 
+              onSelect={handleManualSelect} 
+              selectedArchetype={selectedArchetype}
+            />
+          </TabsContent>
+        </Tabs>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center pt-8 border-t border-border">
           <div className="space-y-3">
-            <div className="text-4xl">⚡</div>
-            <h3 className="text-lg font-semibold text-foreground">Working Tools, Instant</h3>
+            <div className="text-4xl">🎮</div>
+            <h3 className="text-lg font-semibold text-foreground">12 Learning Worlds</h3>
             <p className="text-sm text-muted-foreground">
-              Real functional components render on first load — no placeholders
+              Physics playgrounds, logic gyms, research libraries, quantum visualizers, and more
             </p>
           </div>
           <div className="space-y-3">
-            <div className="text-4xl">🪙</div>
-            <h3 className="text-lg font-semibold text-foreground">Token Per Function</h3>
+            <div className="text-4xl">🎰</div>
+            <h3 className="text-lg font-semibold text-foreground">Neural Creation</h3>
             <p className="text-sm text-muted-foreground">
-              Each tool mints value — websites are collectible assets
+              Behavior signals + emoji reels = unique worlds with rarity multipliers
             </p>
           </div>
           <div className="space-y-3">
-            <div className="text-4xl">🏪</div>
-            <h3 className="text-lg font-semibold text-foreground">Real Marketplace</h3>
+            <div className="text-4xl">💎</div>
+            <h3 className="text-lg font-semibold text-foreground">Anti-Clone Value</h3>
             <p className="text-sm text-muted-foreground">
-              Trade ownership of live websites with real functionality
+              Originality is rewarded — identical worlds lose value, unique creations win
             </p>
           </div>
         </div>

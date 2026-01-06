@@ -1,5 +1,6 @@
 import { Website, Token, Wallet, WebsiteTheme, Transaction, ToolComponent } from './types'
 import { classifyIntentToTools, getToolValue } from './toolClassifier'
+import { WorldArchetype, WORLD_ARCHETYPES } from './worldTypes'
 
 export function generateWebsiteId(): string {
   return `site-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
@@ -18,11 +19,24 @@ export function generateTransactionId(): string {
 }
 
 export function calculateWebsiteValue(website: Website): number {
-  const baseValue = 1000
+  const worldDef = website.worldArchetype ? WORLD_ARCHETYPES[website.worldArchetype] : null
+  const baseValue = worldDef?.baseValue || 1000
+  
+  const rarityBonus = baseValue * ((website.rarityMultiplier || 1.0) - 1.0)
+  
+  const toolDiversityScore = new Set((website.tools || []).map(t => t.type)).size
+  const diversityMultiplier = 1 + (toolDiversityScore * 0.1)
+  
   const pageValue = (website.pages?.length || 0) * 100
   const toolValue = (website.tools || []).reduce((sum, tool) => sum + getToolValue(tool.type), 0)
-  const ageBonus = Math.floor((Date.now() - website.createdAt) / (1000 * 60 * 60 * 24)) * 10
-  return baseValue + pageValue + toolValue + ageBonus
+  
+  const uniquenessBonus = (website.uniquenessScore || 1.0) * 100
+  
+  const activeBuildBonus = Math.min((website.activeBuildTime || 0) / (1000 * 60), 500)
+  
+  const totalValue = (baseValue + pageValue + toolValue + uniquenessBonus + rarityBonus + activeBuildBonus) * diversityMultiplier
+  
+  return Math.floor(totalValue)
 }
 
 export function formatValue(value: number): string {
@@ -144,6 +158,71 @@ Return ONLY valid JSON in this exact format:
       title: query,
       description: 'An Infinity-powered website',
       content: `## ${query}\n\nThis website was created to explore: ${query}\n\nContent generation is in progress...`,
+      tools
+    }
+  }
+}
+
+export async function generateWorldContent(
+  archetype: WorldArchetype,
+  walletAddress: string,
+  slotCombination?: string
+): Promise<{
+  title: string
+  description: string
+  content: string
+  tools: ToolComponent[]
+}> {
+  const worldDef = WORLD_ARCHETYPES[archetype]
+  
+  const tools: ToolComponent[] = worldDef.tools.map((toolType, index) => ({
+    id: `tool-${Date.now()}-${index}`,
+    type: 'content-hub',
+    title: toolType.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+    description: `${toolType} for ${worldDef.name}`,
+    config: { worldType: archetype, toolName: toolType },
+    addedAt: Date.now(),
+    addedBy: walletAddress
+  }))
+
+  const promptText = `You are creating an educational game-world website based on the "${worldDef.name}" archetype.
+
+World Details:
+- Name: ${worldDef.name}
+- Emoji: ${worldDef.emoji}
+- Description: ${worldDef.description}
+- Educational Goal: ${worldDef.educationalGoal}
+${slotCombination ? `- Slot Combination: ${slotCombination}` : ''}
+
+Generate engaging content that:
+1. Explains what this world teaches through play
+2. Describes the game mechanics and interactions
+3. Highlights how learning happens through discovery
+4. Provides clear next steps for the user
+
+Return ONLY valid JSON in this exact format:
+{
+  "title": "Engaging World Title (5-8 words)",
+  "description": "Compelling tagline about learning through play (15-25 words)",
+  "content": "## Welcome to [World]\\n\\nIntroduction...\\n\\n## How It Works\\n\\nMechanics...\\n\\n## What You'll Learn\\n\\nEducational outcomes...\\n\\n## Get Started\\n\\nNext steps..."
+}`
+
+  try {
+    const response = await window.spark.llm(promptText, 'gpt-4o', true)
+    const parsed = JSON.parse(response)
+    
+    return {
+      title: parsed.title || worldDef.name,
+      description: parsed.description || worldDef.description,
+      content: parsed.content || `## ${worldDef.name}\n\n${worldDef.description}\n\n### Educational Goal\n\n${worldDef.educationalGoal}`,
+      tools
+    }
+  } catch (error) {
+    console.error('Error generating world content:', error)
+    return {
+      title: worldDef.name,
+      description: worldDef.description,
+      content: `## ${worldDef.name}\n\n${worldDef.description}\n\n### Educational Goal\n\n${worldDef.educationalGoal}\n\n### Get Started\n\nExplore the tools below to begin your learning journey.`,
       tools
     }
   }

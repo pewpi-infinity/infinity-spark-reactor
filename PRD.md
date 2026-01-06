@@ -1,209 +1,242 @@
 # Planning Guide
 
-Infinity Spark turns ideas into live websites with working tools instantly. Every website is a token. Every tool adds value. Tokens are tradable assets in a real marketplace.
+Infinity Spark is an educational game-world builder where learning feels like play, play creates assets, and assets have real value derived from function. Through a neural slot machine interface and 12 canonical world types, users create playable learning environments that are also tradable tokens.
 
 **Experience Qualities**:
-1. **Immediate Functionality** - No descriptive text as primary output; every query generates working, interactive tools that render on first load
-2. **Tool-First Architecture** - Websites are collections of functional components (video players, charts, galleries, calculators) not just content
-3. **Value Per Function** - Each tool increases website value; tokens represent real, functional digital infrastructure
+1. **Play as Learning** - Educational concepts emerge through game mechanics, interactive worlds, and discovery-driven exploration
+2. **Neural Creation** - Slot machine interface combines user intent with behavior signals (timing, cursor movement, hesitation) to generate unique world combinations
+3. **Function as Value** - Assets gain worth through uniqueness, reusability, tool diversity, and time spent building (not idle)
 
 **Complexity Level**: Complex Application (advanced functionality, likely with multiple views)
-This is a world-building platform where user intent is classified into tool primitives that are instantly instantiated as working components. The system includes: intelligent tool classification, real-time component rendering, token minting per functionality, wallet management, marketplace trading, and collaborative building. The differentiation is not AI writing but instant ownership of working digital infrastructure.
+This is a playful learning platform with 12 world archetypes (physics playgrounds, logic gyms, research libraries, quantum visualizers, dreamscape architects, etc.), neural slot-machine creation, game-script recombination, and an emulator separation model. Users build educational game-worlds that teach through interaction while generating tradable tokens. The system enforces originality through anti-clone mechanics and values creation over replication.
 
 ## Essential Features
 
-### 1. Tool Classification & Instant Rendering (Core Execution Engine)
-- **Functionality**: Analyzes user intent and immediately generates 1-3 working tool primitives (video player, chart, gallery, timeline, dashboard, store, calculator, etc.)
-- **Purpose**: Transform abstract queries into functional components on first load — no placeholders, no "coming soon" text
-- **Trigger**: User submits any search query
-- **Progression**: Parse query → Classify into tool types → Generate tool configs → Mount working components → Display live website
-- **Success criteria**: Tools are interactive on first render, each tool type has distinct functionality, user sees working components within 3 seconds
+### 1. Neural Slot Machine (Creation Interface)
+- **Functionality**: Giant slot machine UI with emoji reels that combine user intent with behavior signals (click rhythm, hover time, cursor movement, hesitation patterns) to generate unique world-websites
+- **Purpose**: Make creation feel playful while capturing nuanced user preferences through interaction patterns
+- **Trigger**: User presses CREATE button on home screen
+- **Progression**: Button press → Reels spin with emojis 🎰🍄⚙️📀👑🧲 → Analyze timing/movement/prior history → Classify into world archetype → Generate live website with 1-3 tools → Mint 1 token
+- **Success criteria**: Every spin produces a working website, emoji combinations determine world type and rarity, behavior signals influence tool selection, rare combinations yield higher valuations
 
-### 2. Token-Per-Tool Minting (Value Generation)
-- **Functionality**: Mints tokens based on functional components added, not text content; each tool type has specific value
-- **Purpose**: Make functionality tradable — websites are collections of working tools with measurable value
-- **Trigger**: Automatically when website created (base + tools) and when pages added (new tools)
-- **Progression**: Tool rendered → Value calculated → Token metadata updated → Wallet balance increased → Tool count displayed
-- **Success criteria**: Token metadata includes tool count, website value reflects sum of tool values, each tool addition increases token value
+### 2. 12 Canonical World Archetypes (Learning Environments)
+- **Functionality**: Pre-designed world types that combine education, play, and productivity: Slot Forge, Mario-Scale Physics, Game Script Genome Lab, Neural Cart Playground, World Stitcher, Playable Research Library, Intent Magnet Arena, Logic & Reasoning Gym, Game-to-Film Studio, Quantum Playground, Emulator Dock, Dreamscape Architect
+- **Purpose**: Provide structured yet flexible learning environments where each world teaches different skills through game mechanics
+- **Trigger**: Determined by neural slot machine output or user selection
+- **Progression**: World type selected → Educational goal identified → Interactive tools loaded → Game mechanics activated → Learning through play begins
+- **Success criteria**: Each world has distinct visual identity, unique mechanics, clear educational purpose, and appropriate toolset
 
-### 3. Infinity Search Bar (Intent-to-Tool Engine)
-- **Functionality**: Single input field that accepts any idea and generates working website with functional tools
-- **Purpose**: Primary interface for instant creation — simplicity meets immediate execution
-- **Trigger**: User types and presses Enter or clicks the Infinity symbol
-- **Progression**: Type query → Tool classification happens → Website generates with mounted tools → Token mints → Redirect to live site
-- **Success criteria**: At least 1 working tool appears on every generated website, no "this will include" descriptions as primary output
+### 3. Anti-Clone Originality System
+- **Functionality**: Automatically detects when two worlds share identical tools, layout, and logic, then reduces value of both to enforce uniqueness
+- **Purpose**: Force creativity and prevent lazy replication, making truly original worlds more valuable
+- **Trigger**: Runs on every new world creation and periodically on existing worlds
+- **Progression**: Scan world → Compare tools/layout/logic → Calculate similarity score → If > 90% match found → Reduce both worlds' values → Notify owners
+- **Success criteria**: Duplicate worlds lose value, original combinations maintain value, users are incentivized to create unique worlds
 
-### 4. Instant Website Generation with Functional Tools
-- **Functionality**: Creates live website with working components based on intent: charts for data queries, galleries for visual content, calculators for computations, stores for commerce, etc.
-- **Purpose**: Deliver real functionality immediately, not descriptions of future functionality
-- **Trigger**: Automatically triggered after Infinity search submission
-- **Progression**: Classify intent → Select tool primitives → Generate tool configs → Render components → Display with metadata (value, token ID, owner, tool count)
-- **Success criteria**: Every website includes at least one interactive tool, tools are fully functional without additional setup, tool types match user intent
+### 4. World-Specific Value Calculation
+- **Functionality**: Calculate world value based on: base world type value, tool diversity multiplier, uniqueness score, script reuse by others, active building time (not idle), and world combination rarity
+- **Purpose**: Make functional, original, and useful worlds more valuable than copied or idle ones
+- **Trigger**: On creation, tool addition, world stitching, and when other users reference/reuse components
+- **Progression**: Action occurs → Calculate base value → Apply multipliers (diversity, uniqueness, reuse) → Penalize clones → Update token value → Display in wallet
+- **Success criteria**: Unique worlds worth more, tool diversity increases value, clone detection reduces value, idle time doesn't accumulate value
 
-### 5. Tool Primitive Library (Functional Components)
-- **Functionality**: 20+ pre-built interactive components: video player, charts (bar/line/pie), gallery, timeline, dashboard, store, calculator, forms, tables, feeds, calendars, etc.
-- **Purpose**: Provide real functionality that users can immediately interact with and trade
-- **Trigger**: Automatically selected based on intent classification
-- **Progression**: Tool type determined → Config generated → Component rendered → Interactivity enabled
-- **Success criteria**: Each tool renders correctly, has unique functionality, responds to user interaction, displays relevant data/UI
+### 5. Game Script Recombination System (Legal & Safe)
+- **Functionality**: Extract and store game logic patterns (jump mechanics, aim systems, spawn rules, score logic) as reusable genomes WITHOUT copying assets, sprites, sounds, or maps
+- **Purpose**: Learn from existing games to build new ones while staying completely legal and educational
+- **Trigger**: User uploads script/logic snippet or connects external emulator
+- **Progression**: Script uploaded → Parse mechanics → Tag patterns (movement, collision, state) → Store as genome → Make reusable → User combines genomes into new worlds
+- **Success criteria**: Only logic extracted (no assets), genomes are reusable building blocks, combinations create new games, stays legally clean
 
-### 6. Automatic Wallet & Token System
-- **Functionality**: Creates wallet on first use, mints tokens per website with metadata including tool count, displays balance reflecting functional value
-- **Purpose**: Make every website a tradable asset with provable functionality and measurable value
-- **Trigger**: Automatically on first website creation (wallet), automatically on each new website/tool (token updates)
-- **Progression**: Detect first use → Create wallet → Mint token with tool metadata → Calculate value from tool types → Update balance → Show in wallet view
-- **Success criteria**: Wallet shows correct balance, tokens link to websites, metadata includes tool count and types, value reflects functional components
+### 6. Emulator Separation Model (Critical Legal Boundary)
+- **Functionality**: Spark NEVER hosts emulators or ROMs; instead provides containers where users bring their own emulators/ROMs, while Spark only reads and extracts logic patterns
+- **Purpose**: Stay completely legal while enabling game-based learning and mechanic extraction
+- **Trigger**: User navigates to Emulator Dock world
+- **Progression**: User provides emulator → User provides ROM → Runs in isolated container → Spark reads scripts/mechanics only → User extracts logic patterns → Uses patterns in new creations
+- **Success criteria**: Zero emulators hosted by Spark, zero ROMs stored, only logic/mechanics extracted, clear legal separation maintained
 
-### 7. Live Page Builder (Continuous Tool Addition)
-- **Functionality**: Visible-by-default builder that adds new pages with new functional tools, expanding website capabilities
-- **Purpose**: Enable continuous growth with each addition bringing new tools and increased value
-- **Trigger**: Visible on every user-owned site by default, can be toggled
-- **Progression**: Site loads → Builder visible → User searches → New tools classified → Tools rendered → Page added → Token value increases → Builder remains available
-- **Success criteria**: Each new page includes appropriate tools for query, tools are immediately functional, value increases reflect new tools
+### 7. Neural Cart System (AI Delegation)
+- **Functionality**: Tiny thinking agents (NeuralMcarts) that each perform one cognitive job: chooser, explorer, optimizer, chaos injector - users employ them like workers within their worlds
+- **Purpose**: Teach AI delegation and modular thinking through playful worker management
+- **Trigger**: Available in Neural Cart Playground world and employable in other worlds
+- **Progression**: User selects cart type → Assign to task in world → Cart performs specialized function → Results feed back → Unique cart combinations increase world value
+- **Success criteria**: Each cart has distinct behavior, carts work together, users learn delegation patterns, rare cart combinations add value
 
-### 8. Marketplace (Functional Asset Trading)
-- **Functionality**: Browse, buy, sell website-tokens that include working tools and functional infrastructure
-- **Purpose**: Create real economy around functional digital assets, not just content
-- **Trigger**: User clicks Marketplace from main nav or wallet
-- **Progression**: Enter marketplace → Browse listings with tool counts → Preview working tools → Buy website with ∞ → Ownership + all tools transfer → Wallet updates → Seller receives payment
-- **Success criteria**: Listings show tool count, buyers receive functional websites, all tools remain operational after transfer
+### 8. World Stitcher (Cross-Domain Synthesis)
+- **Functionality**: Combine mechanics from multiple worlds to create hybrid learning environments (e.g., helicopter drop mechanic + Mario gravity + desert map + logic puzzle)
+- **Purpose**: Teach systems interoperability and creative synthesis across different domains
+- **Trigger**: User selects World Stitcher archetype or uses stitch action in existing world
+- **Progression**: Select source worlds → Choose mechanics from each → Define interaction rules → Generate hybrid world → Test for compatibility → Mint high-rarity token if domains are distant
+- **Success criteria**: Mechanics from different worlds work together, incompatibilities detected early, successful stitches create unique valuable worlds
 
-### 9. Website Themes & Templates
-- **Functionality**: Choose from 5 distinct themes (Cosmic, Minimal, Editorial, Technical, Vibrant) when creating websites
-- **Purpose**: Give users visual control and creative expression over their generated websites
-- **Trigger**: Theme selector displayed on home screen before creation
-- **Progression**: View theme options with previews → Select preferred theme → Enter search query → Website generates with chosen theme applied
-- **Success criteria**: All themes render correctly, theme persists across pages and tools, themes are visually distinct and polished
+### 9. Playable Research Library (Knowledge as Space)
+- **Functionality**: Research topics become explorable rooms where charts are doors, videos are windows, simulations are interactive toys, and knowledge is spatial navigation
+- **Purpose**: Replace scrolling text walls with interactive spatial exploration for better learning retention
+- **Trigger**: User creates Research Library world or adds research to any world
+- **Progression**: Topic selected → Research generated → Spatial layout created → Interactive elements placed → Citations become links → User explores physically
+- **Success criteria**: No scrolling walls of text, everything is clickable/explorable, research cited by others increases value, spatial metaphors aid understanding
 
-### 10. Collaboration System
-- **Functionality**: Website owners can add collaborators with specific roles (Editor or Viewer), manage permissions, and allow multiple users to contribute
-- **Purpose**: Enable team-based website building and shared ownership experiences
-- **Trigger**: Owner clicks "Add Collaborator" button in website view
-- **Progression**: Enter collaborator wallet address → Select role (Editor/Viewer) → Add collaborator → Collaborator appears in list → Owner can remove collaborators → Editors can add pages
-- **Success criteria**: Collaborators can access websites per their role, tool additions are attributed, owner maintains control, collaboration list displays correctly
+### 10. Intent Magnet Arena (Behavioral Creation)
+- **Functionality**: User creates worlds without typing — system infers intent purely from mouse movement, tap patterns, hesitation, and cursor behavior
+- **Purpose**: Teach subconscious decision-making and demonstrate human-machine interaction through pure behavior
+- **Trigger**: User selects Intent Magnet world or enables behavioral mode
+- **Progression**: Track mouse/touch → Analyze patterns → Classify intent → Build world from behavior → Show what was inferred → User refines → World evolves
+- **Success criteria**: Meaningful worlds built without typing, behavior patterns accurately classified, users understand their own subconscious choices
 
-### 11. List & Sell Websites
-- **Functionality**: Website owners can list their sites for sale at a custom price in ∞, unlist anytime, and complete purchases instantly
-- **Purpose**: Enable fluid marketplace economy with user-controlled pricing
-- **Trigger**: Owner clicks "List for Sale" in website view
-- **Progression**: Enter price in ∞ → Confirm listing → Website appears in marketplace "For Sale" tab → Buyer purchases → ∞ deducted from buyer → Website ownership transfers → Token moves to buyer wallet
-- **Success criteria**: Listings appear immediately, prices are enforced, ∞ balance checks prevent overdraft, ownership + tools transfer atomically
+### 11. Physics & Logic Learning Worlds
+- **Functionality**: Specialized worlds for different educational domains: Mario-Scale Physics (gravity, collision, momentum), Logic & Reasoning Gym (deduction puzzles, cause-effect), Quantum Playground (visual wave metaphors), Dreamscape Architect (emotional intelligence through symbols)
+- **Purpose**: Each world teaches specific skills through game mechanics and play
+- **Trigger**: Selected from slot machine or world type selector
+- **Progression**: World loads → Tutorial mechanic appears → User experiments → Complexity increases → Learning happens through discovery → Tokens mint for milestones
+- **Success criteria**: Each world teaches its domain effectively, mechanics map to concepts, progression feels natural, users retain knowledge
 
-### 12. Guest-First, Auth-When-Needed
-- **Functionality**: Spark initializes fully as guest, login only required for editing/trading, site owners can enable their own auth
-- **Purpose**: Remove friction, never block exploration or viewing
-- **Trigger**: Guest access on load, login prompt only when attempting owner actions
-- **Progression**: Load app → Full guest access → Attempt edit/trade → Login prompt → Authenticate → Owner actions unlocked
-- **Success criteria**: No auth screens on initialization, all viewing works as guest, edit/trade properly gated
+### 12. Self-Growing C13B0 Loop (System Learning)
+- **Functionality**: System watches which worlds users keep, observes which tools recur, promotes successful patterns, deprecates boring ones, and carries winning mechanics into next builds
+- **Purpose**: Users train the system by building, making the platform smarter over time
+- **Trigger**: Runs continuously in background, analyzing usage patterns
+- **Progression**: Observe user retention → Track tool popularity → Identify successful world types → Adjust slot machine weights → Promote winning patterns → Deprecate unused mechanics
+- **Success criteria**: Popular world types appear more in slot machine, successful tools get prioritized, boring mechanics fade away, system improves without manual tuning
+
+### 13. Token Minting & Value System (Core Economy)
+- **Functionality**: Mint tokens when worlds are created with metadata including world type, tool count, rarity score, uniqueness hash - value based on function not hype
+- **Purpose**: Make learning assets tradable with real value derived from originality and utility
+- **Trigger**: World creation, tool addition, world stitching, script genome creation
+- **Progression**: Functional addition → Calculate value (base + multipliers) → Check for clones (penalize if found) → Update token metadata → Mint or update token → Display in wallet
+- **Success criteria**: Value reflects functionality and uniqueness, clones are penalized, original work is rewarded, metadata is comprehensive
+
+### 14. Automatic Wallet & Marketplace System
+- **Functionality**: Creates wallet on first use with 10,000 ∞ starting balance, allows trading of world-tokens in marketplace, enforces Infinity currency for guaranteed settlement
+- **Purpose**: Enable real economy around educational game-worlds with guaranteed exchange and delivery
+- **Trigger**: Wallet auto-created on first world creation, marketplace accessible anytime
+- **Progression**: Create first world → Wallet appears → Token minted → Browse marketplace → Purchase world with ∞ → Ownership transfers → Seller receives payment → Buyer gets full world + all tools
+- **Success criteria**: Wallet creation is seamless, ∞ balance enforced, purchases are atomic, ownership transfers completely, marketplace shows accurate listings
+
+### 15. Collaboration & Ownership
+- **Functionality**: World owners can add collaborators (editor/viewer roles), manage permissions, track contributions, and maintain ownership control
+- **Purpose**: Enable team-based world building and shared learning experiences
+- **Trigger**: Owner clicks "Add Collaborator" in world view
+- **Progression**: Enter collaborator wallet → Select role → Add → Collaborator gains access → Editors can add tools/pages → Owner maintains control → Remove collaborators anytime
+- **Success criteria**: Roles are enforced, contributions are tracked, owner control maintained, collaboration is smooth
+
+### 16. Guest-First Architecture
+- **Functionality**: Full exploration and viewing without authentication, login only required for creating/editing/trading
+- **Purpose**: Remove friction, encourage exploration, never gate discovery behind auth
+- **Trigger**: App loads with guest access enabled
+- **Progression**: Load app → Browse as guest → View worlds → Explore tools → Attempt to create → Login prompt → Authenticate → Creation unlocked
+- **Success criteria**: Zero auth screens on load, all viewing works as guest, creation/editing properly gated, smooth auth when needed
 
 ## Edge Case Handling
 
-- **Empty Search Query**: Prevent submission, show gentle prompt like "What world will you build?"
-- **Ambiguous Intent**: Default to content-hub tool with explanation, allow user to refine
-- **Tool Classification Failure**: Fall back to content-hub tool, log error, still render functional website
-- **Duplicate Ideas**: Generate unique variations, append timestamp to token ID, ensure no collision
-- **Network Failure During Generation**: Show retry option, preserve user's query and partial tool list, resume from last checkpoint
-- **Tool Rendering Error**: Show error boundary per tool, other tools continue to function, offer reload
-- **Wallet Not Found**: Auto-create on any action requiring it, seamless and invisible, start with 10,000 ∞ balance
-- **Insufficient ∞ Balance**: Show clear error when attempting purchase, display current balance vs required price
-- **Builder Accidentally Hidden**: Show subtle "Show Builder" button in header, persist preference
-- **Marketplace Empty State**: Show inspirational call-to-action, suggest creating first website, tab between "For Sale" and "Browse All"
-- **Token Transfer Failure**: Roll back transaction, show clear error, preserve token ownership, refund ∞
-- **Deleted Files/Repos**: Detect deletion, auto-rebuild from intent + history, never break user access
-- **Invalid Collaborator Wallet**: Validate wallet format, prevent duplicate collaborators, show clear error messages
-- **Non-Owner Trying to List**: Prevent listing by non-owners, show "Owner only" message
-- **Listing Already Listed Site**: Prevent re-listing, show current listing with option to update price
-- **Invalid Sale Price**: Require positive numbers, prevent zero or negative prices, show validation error
-- **Tool Config Missing**: Use sensible defaults for each tool type, still render functional component
-- **Multiple Tools Same Type**: Allow duplicates, render each with unique ID, differentiate by config
+- **Slot Spin Timeout**: If LLM takes too long, show progress indicator, allow cancel, preserve behavior data for retry
+- **World Type Classification Failure**: Default to general playground world, log signals for learning, still render functional world
+- **Clone Detection False Positive**: Provide appeal mechanism, manual review option, show similarity score breakdown
+- **Emulator Connection Failure**: Clear error message, never expose Spark to legal risk, guide user to proper setup
+- **Script Extraction Error**: Skip asset files automatically, extract logic only, show what was successfully captured
+- **Cart Conflict**: When carts have incompatible goals, show conflict resolution UI, teach users about trade-offs
+- **World Stitch Incompatibility**: Detect mechanic conflicts early, suggest alternatives, allow manual resolution
+- **Behavior Tracking Privacy**: Clear opt-in for behavioral creation, local-only tracking option, transparent about what's captured
+- **Learning Plateau**: Detect when user stops progressing, suggest new world types, introduce complexity gradually
+- **Token Value Collapse**: If world becomes worthless (cloned everywhere), allow transformation to new unique world
+- **Empty Marketplace**: Showcase featured worlds, provide creation incentives, enable discovery mechanisms
+- **Research Citation Loop**: Detect circular references, prevent infinite loops, cap citation depth
+- **Physics Simulation Crash**: Isolate physics engine failures, preserve world state, offer reload without data loss
+- **Intent Misclassification**: Provide "Not what I meant" button, learn from corrections, offer manual world type selection
+- **Network Failure During Creation**: Save behavior signals locally, resume when online, never lose creation intent
+- **Wallet Not Found**: Auto-create seamlessly with 10,000 ∞, no user action required
+- **Insufficient ∞ Balance**: Clear error with current vs required balance, suggest earning more through creation
+- **Educational Progress Tracking**: Store learning milestones per world, show growth over time, celebrate achievements
 
 ## Design Direction
 
-The design should evoke **functional immediacy meeting digital ownership** - every element you see is working, tradable, and valuable. The interface should feel like opening a toolbox of infinite possibilities, where complexity is hidden behind working components. Think: the instant gratification of a well-built dashboard combined with the tangible value of owning functioning infrastructure.
+The design should evoke **playful learning meets cosmic energy** - a slot machine that creates worlds, emojis that represent possibilities, game worlds that teach concepts, and value that emerges from originality. The interface should feel like opening a treasure chest of infinite learning adventures where complexity is hidden behind joyful interaction. Think: the excitement of spinning a slot machine combined with the satisfaction of building something educational and valuable.
 
 ## Color Selection
 
-A deep cosmic theme with vibrant accent colors that pop against darkness, creating contrast and energy.
+A vibrant cosmic theme with energetic accents that create joy and wonder, balanced with deep space for focus.
 
-- **Primary Color**: Deep Space Indigo `oklch(0.25 0.08 270)` - Communicates depth, intelligence, and infinite possibility
+- **Primary Color**: Cosmic Purple `oklch(0.35 0.15 290)` - Communicates creativity, learning, and playful energy
 - **Secondary Colors**: 
-  - Cosmic Purple `oklch(0.35 0.15 290)` - For builder elements and secondary actions
-  - Nebula Blue `oklch(0.45 0.12 250)` - For informational states and hover effects
-- **Accent Color**: Infinity Gold `oklch(0.75 0.15 85)` - Attention-grabbing highlight for CTAs, token indicators, and success states
+  - Deep Space Indigo `oklch(0.25 0.08 270)` - For stability and depth
+  - Nebula Blue `oklch(0.45 0.12 250)` - For educational elements and information
+- **Accent Color**: Infinity Gold `oklch(0.75 0.15 85)` - For slot machine wins, token minting, achievements, and success moments
+- **Playful Accents**: Integrate emoji colors naturally (🍄 greens, 🎰 reds/golds, ⚙️ silvers, 📀 rainbow holographic effects)
 - **Foreground/Background Pairings**:
   - Background (Deep Black `oklch(0.12 0 0)`): Light Gray text `oklch(0.95 0 0)` - Ratio 16.8:1 ✓
-  - Primary (Deep Space Indigo `oklch(0.25 0.08 270)`): White text `oklch(1 0 0)` - Ratio 12.5:1 ✓
+  - Primary (Cosmic Purple `oklch(0.35 0.15 290)`): White text `oklch(1 0 0)` - Ratio 10.2:1 ✓
   - Accent (Infinity Gold `oklch(0.75 0.15 85)`): Deep Black text `oklch(0.12 0 0)` - Ratio 11.2:1 ✓
   - Cards (Dark Slate `oklch(0.18 0.02 260)`): Light Gray text `oklch(0.95 0 0)` - Ratio 13.4:1 ✓
 
 ## Font Selection
 
-Typefaces should communicate **futuristic precision with human warmth** - technical enough to feel powerful, but approachable enough to inspire creativity.
+Typefaces should communicate **playful intelligence with clarity** - fun enough to inspire joy, clear enough for learning, distinctive enough to feel special.
 
-- **Primary Font**: Space Grotesk - Modern geometric sans with tech aesthetic, perfect for the Infinity brand
-- **Secondary Font**: Inter - Clean and readable for body content, research text, and long-form content
-- **Monospace**: JetBrains Mono - For token IDs, wallet addresses, and technical metadata
+- **Primary Font**: Space Grotesk - Geometric and futuristic, perfect for the cosmic learning theme
+- **Secondary Font**: Inter - Clean and readable for educational content and explanations
+- **Monospace**: JetBrains Mono - For technical metadata, token IDs, and code-like elements
 
 **Typographic Hierarchy**:
-- H1 (Infinity Logo/Brand): Space Grotesk Bold / 48px / tight letter-spacing (-0.02em)
-- H2 (Page Titles): Space Grotesk Bold / 36px / normal letter-spacing
-- H3 (Section Headers): Space Grotesk Medium / 24px / normal letter-spacing
-- Body (Research Content): Inter Regular / 16px / line-height 1.6 / letter-spacing (-0.01em)
-- Small (Metadata): Inter Medium / 14px / letter-spacing (-0.005em)
-- Mono (Technical): JetBrains Mono Regular / 14px / letter-spacing (-0.02em)
+- H1 (Infinity Branding): Space Grotesk Bold / 56px / tight letter-spacing (-0.03em) / with subtle glow
+- H2 (World Titles): Space Grotesk Bold / 36px / normal spacing / playful color
+- H3 (Section Headers): Space Grotesk Medium / 24px / with emoji integration
+- Body (Learning Content): Inter Regular / 16px / line-height 1.7 / comfortable reading
+- Small (Metadata): Inter Medium / 14px / muted color
+- Mono (Technical): JetBrains Mono Regular / 13px / for IDs and addresses
+- Slot Machine Text: Space Grotesk Black / 72px+ / with animation and glow
 
 ## Animations
 
-Animations should create a sense of **cosmic energy and instant materialization** - websites don't load, they materialize; tokens don't mint, they spark into existence. Use quick, purposeful motion with physics-based easing to make every action feel satisfying without creating delays. Key moments: search submission (ripple effect), website generation (particles coalescing), token minting (golden flash), page transitions (smooth depth shifts), builder toggle (elegant slide).
+Animations should create **joy, wonder, and learning momentum** - the slot machine reels should spin with satisfying physics, world creation should feel like magic materializing, tokens should mint with celebratory sparkles, and transitions should feel smooth and energetic. Use elastic easing for playful moments (slot stops, achievements), quick springs for interactions (button presses, cart movements), smooth cubic for transitions (world switches). Key moments: slot spin (anticipation build with sound-like visual rhythm), reel stop (elastic bounce with emoji pop), world generation (particles coalescing into structure), token mint (golden explosion), learning milestone (celebratory burst), world stitch (fusion animation showing combination).
 
 ## Component Selection
 
 - **Components**:
-  - Input + Button (custom Infinity search bar) - Oversized, centered, with glow effects and Infinity icon
-  - Card (website previews, token displays) - Dark with subtle borders, hover lifts with glow
-  - Dialog (detailed website views, transaction confirmations) - Full-screen overlays with blur backdrop
-  - Tabs (wallet sections: sites, tokens, transactions) - Minimal underline style
-  - Badge (token IDs, valuations, status indicators) - Rounded, glowing, with animation
-  - Avatar (owner indicators) - Generated from wallet addresses
-  - Scroll Area (marketplace listings, research content) - Custom scrollbars matching theme
-  - Tooltip (metadata on hover) - Quick, subtle, informative
-  - Toast (sonner for success/error notifications) - Positioned top-right, with icons
+  - Custom Slot Machine - Giant animated reels with emoji symbols, pull lever or spin button, anticipation build, satisfying stops
+  - Card (world previews, world type selectors) - Vibrant with emoji headers, hover reveals details, click to explore
+  - Badge (world types, rarity indicators, achievement markers) - Colorful, glowing, with emoji integration
+  - Dialog (world creation flow, detailed views, educational content) - Full-screen with playful transitions
+  - Tabs (wallet sections, world type filters) - Emoji-enhanced, smooth sliding indicator
+  - Tooltip (hover for learning tips, mechanic explanations) - Quick, helpful, encouraging tone
+  - Toast (achievements, milestones, token mints) - Celebratory with animations and emoji
+  - Progress Bar (learning progress, world building progress) - Animated with milestone markers
+  - Avatar (owner indicators, cart representations) - Playful, emoji-integrated or generated
+  - Scroll Area (world galleries, research content) - Smooth with custom themed scrollbars
 
 - **Customizations**:
-  - Infinity Search Component - Custom oversized input with animated Infinity symbol button
-  - Cosmic Background - Animated gradient mesh with subtle particle effects
-  - Token Card - Custom component showing website preview + token metadata + value
-  - Builder Panel - Slide-in panel with embedded search and page management
-  - Website Generator Preview - Live loading state with progress visualization
+  - Neural Slot Machine - Giant centerpiece with three spinning reels, each showing 5 emoji at a time, lever animation, win celebration
+  - World Type Cards - 12 distinct card designs, each reflecting its archetype's personality (physics world with bouncing elements, logic gym with puzzle pieces, etc.)
+  - Neural Cart Display - Animated cart characters with distinct personalities (chooser has selection icons, explorer has compass, etc.)
+  - Learning Progress Tracker - Visual journey map showing worlds explored, skills learned, milestones achieved
+  - World Stitcher Interface - Drag-and-drop combining UI with fusion animation when mechanics merge
+  - Research Room Visualizer - 3D-like spatial navigation with doors/windows/toys as interactive research elements
 
 - **States**:
-  - Buttons: Default (subtle glow), Hover (increased glow + scale 1.02), Active (pressed scale 0.98), Disabled (reduced opacity + no glow)
-  - Inputs: Default (border glow), Focus (expanded glow + ring), Filled (accent border), Error (red glow)
-  - Cards: Default (subtle elevation), Hover (lift + stronger glow + border brightens), Selected (accent border + glow)
+  - Slot Machine: Idle (gentle pulse), Spinning (blur motion), Slowing (anticipation), Stopped (bounce), Won (explosion)
+  - World Cards: Default (subtle float), Hover (lift + glow + scale 1.05), Selected (accent border + strong glow), Locked (grayscale + lock icon)
+  - Buttons: Default (playful shadow), Hover (lift + brighten), Active (squash down), Disabled (fade + desaturate)
+  - Carts: Idle (breathe animation), Working (gears turning), Success (happy bounce), Conflict (shake)
 
-- **Icon Selection**:
-  - Infinity symbol (custom SVG) - Main brand icon for search
-  - MagnifyingGlass (search within builder) - Secondary search actions
-  - Wallet (wallet view) - User's token collection
-  - Storefront (marketplace) - Trading and browsing
-  - Plus (add page, create new) - Creation actions
-  - Eye (preview, view) - Viewing actions
-  - ArrowsClockwise (rebuild, refresh) - Recovery actions
-  - CaretRight/CaretLeft (navigation) - Browsing
-  - Crown (ownership indicator) - Owner badges
-  - Sparkle (token mint success) - Success states
+- **Icon Selection** (Phosphor Icons + Emoji):
+  - 🎰 Slot machine symbol - Main creation interface
+  - 🍄 Organic growth - Physics/nature worlds
+  - ⚙️ Mechanics - Logic and systems
+  - 📀 Data/memory - Research and storage
+  - 👑 Achievement/mastery - Completions
+  - 🧲 Attraction/intent - Behavioral systems
+  - Plus/Minus - Add/remove elements
+  - Lightning - Quick actions
+  - Sparkle - Achievements and mints
+  - Infinity (custom) - Brand and currency
 
 - **Spacing**:
-  - Sections: gap-16 (4rem) between major sections
-  - Cards: gap-6 (1.5rem) in grids, padding-6 internal
-  - Inputs: padding-4 (1rem) vertical, padding-6 (1.5rem) horizontal
-  - Buttons: padding-3 (0.75rem) vertical, padding-8 (2rem) horizontal for primary
-  - Content: padding-8 (2rem) for page containers
+  - Slot Machine: margin-top-12 (3rem) for prominence, padding-16 (4rem) around reels
+  - World Cards: gap-8 (2rem) in grid, padding-6 (1.5rem) internal, margin-bottom-16 (4rem) between sections
+  - Learning Content: padding-12 (3rem) for comfortable reading, gap-6 (1.5rem) between elements
+  - Buttons: padding-4 (1rem) vertical, padding-8 (2rem) horizontal for primary actions
 
 - **Mobile**:
-  - Infinity search bar remains centered and prominent, slightly smaller
-  - Marketplace switches from grid to single column
-  - Builder panel becomes full-screen overlay on mobile
-  - Token cards stack vertically with full width
-  - Navigation becomes bottom tab bar on mobile
-  - Wallet view uses accordion for sections instead of tabs
+  - Slot Machine scales down to single-column reels on mobile, still feels prominent and exciting
+  - World cards become full-width carousel with swipe navigation
+  - Neural carts display as horizontal scrollable list
+  - World stitcher becomes sequential selection rather than drag-drop
+  - Research rooms become vertical scrolling with collapsible sections
+  - Bottom navigation with emoji icons for main sections
+  - Wallet view uses accordion for different sections

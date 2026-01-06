@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { useKV } from '@github/spark/hooks'
-import { Website, Wallet, ViewMode, Token, Page, WebsiteTheme, Transaction } from '@/lib/types'
+import { Website, Wallet, ViewMode, Token, Page, Transaction } from '@/lib/types'
+import { WorldArchetype } from '@/lib/worldTypes'
 import { 
   generateWebsiteId, 
   generateTokenId, 
   generateWalletAddress, 
   calculateWebsiteValue,
-  generateWebsiteContent,
+  generateWorldContent,
   generatePageContent,
   generateTransactionId
 } from '@/lib/generators'
@@ -49,13 +50,13 @@ function App() {
     return newWallet
   }
 
-  const handleCreateWebsite = async (query: string, theme: WebsiteTheme = 'cosmic') => {
+  const handleCreateWorld = async (archetype: WorldArchetype, rarityMultiplier: number, slotCombination: string) => {
     setIsCreating(true)
     
     try {
       const currentWallet = ensureWallet()
       
-      const { title, description, content, tools } = await generateWebsiteContent(query, currentWallet.address)
+      const { title, description, content, tools } = await generateWorldContent(archetype, currentWallet.address, slotCombination)
       
       const websiteId = generateWebsiteId()
       const tokenId = generateTokenId()
@@ -65,7 +66,7 @@ function App() {
         tokenId,
         title,
         description,
-        query,
+        query: `World: ${archetype}`,
         content,
         url: `https://infinity.spark/${websiteId}`,
         ownerWallet: currentWallet.address,
@@ -74,14 +75,19 @@ function App() {
         lastModified: Date.now(),
         pages: [],
         tools,
-        theme,
+        theme: 'cosmic',
         collaborators: [{
           wallet: currentWallet.address,
           role: 'owner',
           addedAt: Date.now(),
           addedBy: currentWallet.address
         }],
-        isListedForSale: false
+        isListedForSale: false,
+        worldArchetype: archetype,
+        rarityMultiplier,
+        slotCombination,
+        uniquenessScore: 1.0,
+        activeBuildTime: 0
       }
       
       newWebsite.value = calculateWebsiteValue(newWebsite)
@@ -96,8 +102,11 @@ function App() {
         metadata: {
           title,
           description,
-          query,
-          toolCount: tools.length
+          query: `World: ${archetype}`,
+          toolCount: tools.length,
+          worldArchetype: archetype,
+          rarityMultiplier,
+          uniquenessScore: 1.0
         }
       }
 
@@ -112,7 +121,7 @@ function App() {
         }
       })
 
-      toast.success(`Website "${title}" created and token minted!`)
+      toast.success(`${title} created with ${tools.length} tools!`)
       
       setSelectedWebsiteId(websiteId)
       setViewMode('website')
@@ -422,7 +431,7 @@ function App() {
               </div>
             )}
           </nav>
-          <HomeView onCreateWebsite={handleCreateWebsite} isCreating={isCreating} />
+          <HomeView onCreateWorld={handleCreateWorld} isCreating={isCreating} />
         </>
       )}
 
